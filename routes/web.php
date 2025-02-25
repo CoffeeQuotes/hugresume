@@ -14,6 +14,12 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     Route::get('resume', [ResumeController::class, 'index'])->name('resume');
+    // Create resume 
+    Route::get('resume/create', [ResumeController::class, 'create'])->name('resume.create');
+    Route::get('resume/{resume}', [ResumeController::class, 'show'])->name('resume.show');
+    Route::get('resume/{resume}/edit', [ResumeController::class, 'edit'])->name('resume.edit');
+    Route::put('resume/{resume}', [ResumeController::class, 'update'])->name('resume.update');
+
 });
 
 

@@ -13,6 +13,11 @@ const mainNavItems: NavItem[] = [
         url: '/dashboard',
         icon: LayoutGrid,
     },
+    {
+        title: 'Resumes',
+        url: '/resume',
+        icon: Folder,
+    }
 ];
 
 const footerNavItems: NavItem[] = [
