@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('resume/{resume}', [ResumeController::class, 'show'])->name('resume.show');
     Route::get('resume/{resume}/edit', [ResumeController::class, 'edit'])->name('resume.edit');
     Route::put('resume/{resume}', [ResumeController::class, 'update'])->name('resume.update');
+    Route::post('resume', [ResumeController::class, 'store'])->name('resume.store');
 
 });
 
