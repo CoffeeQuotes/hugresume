@@ -28,7 +28,9 @@ export default function ResumeCreate({ templates, resume }: { templates: any[], 
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (processing) return; // prevent multiple submissions
+        if (processing) {
+          return;
+        } // prevent multiple submissions
     
         if (Object.keys(errors).length > 0) {
             // display error messages to the user
@@ -40,9 +42,6 @@ export default function ResumeCreate({ templates, resume }: { templates: any[], 
             // Update existing resume
             put(route('resume.update', { id: resume?.id }), {
                 preserveScroll: true,
-                onSuccess: () => {
-                    window.location.href = '/resume';
-                },
                 onError: (error) => {
                     console.error('Error updating resume:', error);
                     // display error message to the user
@@ -52,9 +51,6 @@ export default function ResumeCreate({ templates, resume }: { templates: any[], 
             // Create new resume
             post(route('resume.store'), {
                 preserveScroll: true,
-                onSuccess: () => {
-                    window.location.href = '/resume';
-                },
                 onError: (error) => {
                     console.error('Error creating new resume:', error);
                     // display error message to the user
@@ -129,20 +125,24 @@ export default function ResumeCreate({ templates, resume }: { templates: any[], 
                         </Select>
                         <InputError message={errors.template} />
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    <div className="flex items-center gap-4">
+                    <Button
                         disabled={processing}
-                    >
+                    > 
+                    {resume? 'Update' : 'Create'}
+                    </Button>
                         <Transition
                             show={recentlySuccessful}
                             enter="transition ease-in-out"
                             enterFrom="opacity-0"
                             leave="transition ease-in-out"
                             leaveTo="opacity-0">
+                            <p className="text-sm text-neutral-600">
+                                    {processing && 'Processing...'}
+                                    {recentlySuccessful && 'Saved'}
+                            </p>    
                         </Transition>
-                        Create
-                    </button>
+                    </div>    
                 </form>
             </div>
         </AppLayout>

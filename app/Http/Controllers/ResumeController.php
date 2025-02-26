@@ -108,7 +108,7 @@ class ResumeController extends Controller
         $resume->template = $request->template;
         $resume->user_id = auth()->user()->id;
         $resume->save();
-        return to_route('resume.create');
+        return to_route('resume.edit', $resume->id)->with('message', 'Resume created successfully');
     }
 
     /**
@@ -157,7 +157,7 @@ class ResumeController extends Controller
         $resume->template = $request->template;
         $resume->user_id = auth()->user()->id;
         $resume->save();
-        return to_route('resume');
+        return to_route('resume.edit', $resume->id)->with('message', 'Resume updated successfully');
     }
 
     /**
