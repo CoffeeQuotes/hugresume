@@ -73,18 +73,7 @@ class ResumeController extends Controller
     public function create()
     {
         # get all templates
-        $templates = [
-            ['id' => 1, 'name' => 'template1'],
-            ['id' => 2, 'name' => 'template2'],
-            ['id' => 3, 'name' => 'template3'],
-            ['id' => 4, 'name' => 'template4'],
-            ['id' => 5, 'name' => 'template5'],
-            ['id' => 6, 'name' => 'template6'],
-            ['id' => 7, 'name' => 'template7'],
-            ['id' => 8, 'name' => 'template8'],
-            ['id' => 9, 'name' => 'template9'],
-            ['id' => 10, 'name' => 'template10'],
-        ];
+        $templates = Config('constants.templates');
         
         return Inertia::render('resume/resumeform', [
             'templates' => $templates
@@ -123,22 +112,26 @@ class ResumeController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Resume $resume)
-    {   $templates = [
-        ['id' => 1, 'name' => 'template1'],
-        ['id' => 2, 'name' => 'template2'],
-        ['id' => 3, 'name' => 'template3'],
-        ['id' => 4, 'name' => 'template4'],
-        ['id' => 5, 'name' => 'template5'],
-        ['id' => 6, 'name' => 'template6'],
-        ['id' => 7, 'name' => 'template7'],
-        ['id' => 8, 'name' => 'template8'],
-        ['id' => 9, 'name' => 'template9'],
-        ['id' => 10, 'name' => 'template10'],
-    ];
+    {   
+    
+        $templates = Config('constants.templates');
+
         return Inertia::render('resume/resumeform', [
            'resume' => $resume,
            'templates' => $templates
         ]);
+    }
+
+    /**
+     * Add section to the resume 
+    */
+    public function sections(Request $request, Resume $resume)
+    {
+        $sectionTemplates = Config('constants.sectionTemplates');
+        return Inertia::render('resume/section/sections', [
+            'resume' => $resume,
+            'sectionTemplates' => $sectionTemplates
+        ]); 
     }
 
     /**

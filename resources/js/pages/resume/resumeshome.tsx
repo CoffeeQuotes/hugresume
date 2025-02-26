@@ -199,6 +199,12 @@ export default function ResumeHome({ resumes, filters, templates }: Resumes) {
                 >
                   <Eye className="w-4 h-4" /> Edit Resume
                 </Link>
+                <Link
+                  href={`/resume/${resume.id}/sections`}
+                  className={`${buttonVariants({ variant: "default", size: "sm" })} flex items-center gap-2 mt-4 w-full`}
+                >
+                  <Plus className="w-4 h-4" /> Add a new Section
+                </Link>
               </CardContent>
             </Card>
           ))}

@@ -48,3 +48,47 @@ export interface Resume {
     created_at: string;
     updated_at: string;
 }
+
+export interface template {
+    id: number;
+    name: string;
+}
+
+export interface section {
+    id:number; 	
+    resume_id: number; 	
+    name: string; 	
+    content: string; 	
+    form_template: string; 	
+    order: number; 	
+    created_at: string; 	
+    updated_at: string; 	
+
+}
+
+export interface SectionTemplate {
+    id: number;
+    name: string;
+    icon: string;
+}
+
+export interface personalExperience {
+    user_id: number,
+    resume_id: number,
+    first_name:string, 	
+    last_name:string, 	
+    title_before:string, 	
+    title_after:string, 	
+    date_of_birth:string, 	
+    nationality:string, 	
+    phone:string, 	
+    email:string, 	
+    address:string,
+    city:string, 	
+    state:string, 	
+    zip:string, 	
+    country:string, 	
+    website:string, 	
+    summary:string, 	
+    custom_fields:JSON,
+}

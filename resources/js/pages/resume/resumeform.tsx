@@ -3,7 +3,7 @@ import InputError from '@/components/input-error';
 import { Textarea } from "@/components/ui/textarea";
 import { Transition } from "@headlessui/react";
 import AppLayout from "@/layouts/app-layout";
-import { type BreadcrumbItem, type SharedData, type Resume } from "@/types";
+import { type BreadcrumbItem, type SharedData, type Resume, type template } from "@/types";
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -15,8 +15,10 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: "/resume/create",
     },
 ];
-
-export default function ResumeCreate({ templates, resume }: { templates: any[], resume?: Resume }) {
+interface templates {
+    data: template[]
+}
+export default function ResumeCreate({ templates, resume }: { templates: templates, resume?: Resume }) {
     const { auth } = usePage<SharedData>().props;
 
     const { data, setData, post, put, errors, processing, recentlySuccessful } = useForm({
