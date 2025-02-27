@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('personal_infromations', function (Blueprint $table) {
+        Schema::create('personal_information', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('resume_id');
             $table->foreign('resume_id')->references('id')->on('resumes')->onDelete('cascade');
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('state');
             $table->string('zip');
             $table->string('country');
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->text('summary');
             $table->json('custom_fields')->nullable();
             $table->timestamps();

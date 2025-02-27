@@ -72,23 +72,27 @@ export interface SectionTemplate {
     icon: string;
 }
 
-export interface personalExperience {
-    user_id: number,
-    resume_id: number,
-    first_name:string, 	
-    last_name:string, 	
-    title_before:string, 	
-    title_after:string, 	
-    date_of_birth:string, 	
-    nationality:string, 	
-    phone:string, 	
-    email:string, 	
-    address:string,
-    city:string, 	
-    state:string, 	
-    zip:string, 	
-    country:string, 	
-    website:string, 	
-    summary:string, 	
-    custom_fields:JSON,
+
+export interface PersonalInformation {
+    id: number;
+    resume_id: number;
+    user_id: number;
+    first_name: string;
+    last_name: string;
+    title_before: string;
+    title_after: string;
+    date_of_birth: string | null; // Can be null if no date is selected
+    nationality: string;
+    phone: string;
+    email: string;
+    address: string;
+    city: string;
+    state: string;
+    zip: string;
+    country: string;
+    website: string;
+    summary: string;
+    custom_fields: string | null; // Store as JSON string, can be null
+    created_at: string;
+    updated_at: string;
 }
