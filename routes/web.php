@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\ResumeController, App\Http\Controllers\SectionController, App\Http\Controllers\PersonalInformationController;
+use App\Http\Controllers\ResumeController, App\Http\Controllers\SectionController, App\Http\Controllers\PersonalInformationController, App\Http\Controllers\EducationController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -32,6 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('personal-information/{resume}/store', [PersonalInformationController::class,'store'])->name('personal-information.store');
     // personal-information.update
     Route::put('personal-information/{personalInformation}', [PersonalInformationController::class,'update'])->name('personal-information.update');
+
+    // education 
+    Route::post('education/{resume}/store', [EducationController::class, 'store'])->name('education.store');
+    
 });
 
 

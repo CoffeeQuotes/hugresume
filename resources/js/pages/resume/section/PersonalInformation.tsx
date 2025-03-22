@@ -5,7 +5,6 @@ import { Transition } from "@headlessui/react";
 import AppLayout from "@/layouts/app-layout";
 import { type BreadcrumbItem, type SharedData, type Resume, type PersonalInformation } from "@/types";
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Folder } from "lucide-react";
 import * as React from "react"

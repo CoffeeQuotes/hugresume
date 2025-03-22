@@ -96,3 +96,20 @@ export interface PersonalInformation {
     created_at: string;
     updated_at: string;
 }
+
+export interface Education {
+    id: number;
+    resume_id: number;
+    user_id: number;
+    institution_name: string;
+    field_of_study?: string | null;
+    degree: string;
+    city: string;
+    country: string;
+    started: string; // Date stored as ISO string (YYYY-MM-DD)
+    currently_studying: boolean;
+    ended?: string | null; // Nullable date
+    description: string;
+    created_at: string; // Timestamps as ISO string
+    updated_at: string;
+}

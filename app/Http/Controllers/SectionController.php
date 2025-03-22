@@ -6,7 +6,7 @@ use App\Models\Section;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\Resume;
-use App\Models\PersonalInformation;
+use App\Models\{PersonalInformation, Education};
 
 class SectionController extends Controller
 {
@@ -33,10 +33,14 @@ class SectionController extends Controller
         if($sectionTemplateName == 'PersonalInformation'){
             $personalInformation = PersonalInformation::where('resume_id', $resume->id)->first();
         }
+        if($sectionTemplateName == 'Education'){
+            $education = Education::where('resume_id', $resume->id)->first();
+        }
         return Inertia::render('resume/section/'.$sectionTemplateName, [
             'resume' => $resume,
             // If the section is PersonalInformation, we will pass the personal information model
             'personalInformation' => $personalInformation ?? null,
+            'education' => $education ?? null,
         ]); 
     }
 
